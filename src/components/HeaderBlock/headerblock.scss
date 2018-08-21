@@ -1,0 +1,65 @@
+.header {
+    height: 100vh;
+    overflow: hidden;
+
+    @media (max-width: $mobile_l+1) {
+        height: 0!important;
+        padding-bottom: 57vw;
+    }
+
+    .header__content {
+        bottom: -15vh;
+        z-index: 1;
+        position: absolute;
+        right: 8vw;
+        width: 50vw;
+        text-align: center;
+
+        .header__text {
+            color: $white;
+            text-transform: uppercase;
+            font-family: $font_family;
+            font-weight: 500;
+            font-size: 3vw;
+            line-height: 3.5vw;
+            text-align: center;
+            top: 40%;
+            right: 10%;
+            margin-bottom: 20px;
+
+            @media (max-width: $mobile_l+1) {
+                margin-bottom: 1vh;
+            }
+
+            span {
+                font-weight: 800;
+            }
+        }
+    }
+    .header__info {
+        background: url('../images/header/header_bg.jpg');
+        background-size: cover;
+        background-position: top;
+        height: 79vh;
+        position: relative;
+
+        .header__girl {
+            width: 43vh;
+            margin-top: 22vh;
+            position: relative;
+            left: 12vw;
+        }
+        .header__logo {
+            width: 30vw;
+            margin: 5px 0 50px;
+            @media (max-width: $mobile_l+1) {
+                margin: 0px 0 2vh;
+            }
+        }
+        .header__packs {
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

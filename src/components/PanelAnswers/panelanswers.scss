@@ -1,0 +1,109 @@
+.panelanswers {
+    position: relative;
+    width: 90%;
+    display: inline-block;
+    margin-left: 5%;
+    padding-top: 50px;
+
+    @media (max-width: $mobile_l+1) {
+        padding-top: 0px;
+        margin-top: 35px!important;
+    }
+
+    .slider-runner {
+        z-index: 3;
+        -moz-transition: all .2s linear!important;
+        -o-transition: all .2s linear!important;
+        -webkit-transition: all .2s linear!important;
+        transition: all .2s linear!important;
+        width: 4%;
+        position: absolute;
+        left: 7%;
+        max-width: 47px;
+        margin-top: -8px;
+
+        @media (max-width: $mobile_l+1) {
+            margin-top: -3px;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+    .panelanswers__item {
+        width: 16.2%;
+        margin: 0.2%;
+        display: block;
+        float: left;
+
+        .slider-root {
+            -moz-transition: all .2s linear!important;
+            -o-transition: all .2s linear!important;
+            -webkit-transition: all .2s linear!important;
+            transition: all .2s linear!important;
+            height: 7px;
+            background: $red;
+            position: relative;
+        }
+    }
+    .panelanswers__item .slider-root:before {
+        content: '';
+        -moz-transition: all .2s linear!important;
+        -o-transition: all .2s linear!important;
+        -webkit-transition: all .2s linear!important;
+        transition: all .2s linear!important;
+        background: $white;
+        width: 0%;
+        height: 7px;
+        position: absolute;
+    }
+    .panelanswers__item.active .slider-root:before {
+        content: '';
+        -moz-transition: all .2s linear!important;
+        -o-transition: all .2s linear!important;
+        -webkit-transition: all .2s linear!important;
+        transition: all .2s linear!important;
+        background: $white;
+        width: 100%!important;
+        height: 7px;
+        position: absolute;
+    }
+    .panelanswers__item.current .slider-root:before {
+        content: '';
+        -moz-transition: all .2s linear!important;
+        -o-transition: all .2s linear!important;
+        -webkit-transition: all .2s linear!important;
+        transition: all .2s linear!important;
+        background: $white;
+        height: 7px;
+        position: absolute;
+        @include animation('move-current .2s linear .2s forwards');
+    }
+    .panelanswers__item span {
+        text-transform: uppercase;
+        font-family: $font_family;
+        text-align: center;
+        font-weight: 500;
+        font-size: 0.9vw;
+        line-height: 1.5vw;
+        margin-top: 12px;
+        display: block;
+
+        @media (max-width: $mobile_l+1) {
+            font-size: 1.3vw;
+        }
+    }
+}
+
+.panelanswers.hide {
+    display: none;
+}
+
+@include keyframes('move-current') {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 50%;
+    }
+}

@@ -1,0 +1,121 @@
+.memberpage {
+    padding: 50px 0 50px;
+    height: 100vh;
+    overflow: hidden;
+    background: url('../images/members/members-bg.jpg');
+    background-size: cover;
+    background-position: top center;
+
+    @media (max-width: $mobile_l+1) {
+        padding: 0px;
+        height: auto!important;
+        min-height: 100vh;
+        padding-bottom: 25px;
+    }
+    .fa-chevron-right {
+        right: -2vw;
+
+        @media (max-width: $mobile_l+1) {
+            right:0vw;
+            font-size: 5vw!important;
+        }
+    }
+    .fa-chevron-left {
+        left: -2vw;
+        @media (max-width: $mobile_l+1) {
+            right:0vw;
+            font-size: 5vw!important;
+        }
+    }
+    .fa-chevron-left,
+    .fa-chevron-right {
+        font-size: 3vw;
+        color: $red;
+        -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        top: 50%;
+        position: absolute;
+    }
+    .center_block {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .members__block {
+        color: $white;
+        background: $red;
+    }
+    .winners__block {
+        border: 1px solid $white;
+        color: $white;
+    }
+    .memberpage__toggle {
+        margin: 4vh 30px 5vh;
+        text-align: center;
+        padding: 15px 40px;
+        text-transform: uppercase;
+        font-family: $font_family;
+        font-weight: 400;
+        font-size: 2vw;
+        line-height: 2.3vw;
+        display: inline-block;
+        span {
+            font-weight: 500;
+        }
+    }
+    .members__toggle-blocks {
+        display: flex;
+        justify-content: center;
+
+        @media (max-width: $mobile_l+1) {
+         margin-top: 35px;
+        }
+    }
+    .memberpage__container {
+        width: 90%;
+        margin: 0 auto;
+
+        @media (max-width: $mobile_l) {
+            width: 95%;
+        }
+    }
+
+    .owlitem {
+        margin: 0 30px;
+
+        img {
+            width: auto;
+            text-align: center;
+            max-height: 28vh;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+
+            @media (max-width: $mobile_l) {
+                max-height: 45vh;
+            }
+        }
+    }
+}
+
+.owl-nav {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+}
+
+.owl-prev,
+.owl-next {
+    font-size: 3.5vw;
+    color: $red;
+    position: absolute;
+}
+
+.owl-prev {
+    left: -3%;
+}
+
+.owl-next {
+    right: -3%;
+}

@@ -1,0 +1,108 @@
+.menu {
+    top: 0;
+    color: $white;
+    @include flex;
+    width: 100%;
+    background: $red;
+    height: 80px;
+    padding: 0 20px;
+    position: fixed;
+    z-index: 99;
+    @include transition;
+
+    @media (max-width: $mobile_l+1) {
+        width: 100vw;
+        @include flex;
+        height: 50px;
+        @include justify-content(flex-start);
+    }
+    .logo {
+        padding: 0 15px;
+        width: 200px;
+        position: absolute;
+        background: $white;
+        @include transition;
+        @media (max-width: $mobile_l+1) {
+            width: 125px;
+        }
+
+        img {
+            width: 100%;
+
+            @media (max-width: $mobile_l+1) {
+                height: 55px;
+                width: auto;
+            }
+        }
+    }
+    .logo.small {
+        height: 70px;
+        width: 150px;
+        padding: 0;
+
+        img {
+            padding: 19px 0px 5px;
+            object-fit: cover;
+            height: 60px;
+        }
+    }
+
+    .menu-ul {
+        @include flex;
+        flex-flow: row nowrap;
+        @include align-items(center);
+        width: 100%;
+        margin-left: 28vw;
+
+        @media (max-width: $mobile_l+1) {
+            display:none;
+        }
+
+        &__li {
+            position: relative;
+            list-style: none;
+            padding: 4px 1.5vw;
+            margin: 2px 0;
+            color: $white;
+            font-weight: 500;
+            font-size: 1.1em;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+
+            @media (min-width: $desctops_s) {
+                // font-size: 1.4rem;
+            }
+            &--active {
+                color: $white;
+            }
+            &:hover {
+                cursor: pointer;
+            }
+            a {
+                color: $white;
+                text-decoration: none;
+
+                &--active {
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+.menu.small {
+    height: 50px;
+
+    @media (max-width: $mobile_l+1) {
+        display:none;
+    }
+}
+
+.menu.down {
+    height: 50px;
+}
+
+.menu.down .logo img {
+    width: 60%;
+    @include transition;
+}

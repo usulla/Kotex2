@@ -1,0 +1,136 @@
+.testpage {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+
+   @media (max-width: $mobile_l+1) {
+        height: auto!important;
+        overflow: hidden;
+    }
+
+    .testpage__view1 {
+        z-index: 2;
+        height: 100%;
+        width: 100%;
+        background: url('../images/test/test-bg.jpg');
+        background-size: cover;
+        background-position: top center;
+        @include transition('opacity .3 linear');
+
+        .testpage__view1-info {
+            position: absolute;
+            top: 30%;
+            right: 12%;
+            width: auto;
+            height: auto;
+
+            .testpage__view1-text {
+                color: $black;
+                text-transform: uppercase;
+                font-family: $font_family;
+                text-align: left;
+                font-weight: 400;
+                font-size: 4.0vw;
+                line-height: 4.5vw;
+
+                span {
+                    font-weight: 700;
+                }
+            }
+        }
+        .test-girl {
+            max-width: 45vw;
+            position: absolute;
+            top: 60px;
+            left: 2.5vw;
+        }
+    }
+    .testpage__viewcontainer {
+        min-height: 110vh;
+        max-height: 140vh;
+        position: relative;
+        height: 100vh;
+        z-index: 1;
+        background: #d5dae0 url('../images/test/test-bg-crystals.png');
+        background-size: cover;
+        background-position: top center;
+    }
+    .testpage__view1.hide {
+        opacity: 0;
+        display: none;
+    }
+    .testpage__view {
+        // height: 100%;
+        // width: 100%;
+        position: absolute;
+    }
+    .testpage__child {
+        display: none;
+        opacity: 0;
+        align-items: center;
+
+
+        .testpage__child-girl {
+            position: relative;
+            left: 7%;
+            height: auto;
+            float: left;
+            width: 29%;
+            margin-right: 9%;
+            text-align: center;
+
+            @media (max-width: $mobile_l+1) {
+                display:none;
+            }
+        }
+        img {
+            width: auto !important;
+            max-width: 100%;
+            height: auto;
+            max-height: 76vh;
+            margin-top: -7.7vh;
+        }
+    }
+    .testpage__child-info {
+        width: 60%;
+        float: right;
+        padding-right: 5%;
+        min-height: 42vh;
+
+        @media (max-width: $mobile_l+1) {
+            padding-left: 5%;
+            width: 100%;
+        }
+
+        .answer {
+            font-family: $font_family;
+            font-size: 1em;
+            line-height: 1.3;
+            margin-top: 25px;
+            display: block;
+            text-transform: uppercase;
+            border-left: 22px solid $red;
+            padding-left: 20px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            @include transition(all .1s linear);
+
+            &:hover {
+                cursor: pointer;
+                background: $red;
+                color: $white;
+                border-left: 22px solid $white;
+            }
+        }
+        .answer.active {
+            background: $red;
+            color: $white;
+        }
+    }
+}
+
+.testpage__child.active {
+    display: flex;
+    opacity: 1;
+}

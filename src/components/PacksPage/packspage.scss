@@ -1,0 +1,45 @@
+.packspage {
+    background: $white;
+    height: 100vh;
+    overflow: hidden;
+
+    .packspage__top {
+        background: url('../images/packs/packs-bg.jpg');
+        background-size: cover;
+        background-position: top center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 65vh;
+        position: relative;
+
+        .packspage__packs {
+            width: 80vw;
+            bottom: -20vh;
+            position: absolute;
+            left: 10vw;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+    .packspage_text {
+        span {
+            color: $white;
+            text-transform: uppercase;
+            font-family: $font_family;
+            font-weight: 500;
+            font-size: 3.5vw;
+            line-height: 4vw;
+            margin: 40px;
+
+            @media (max-width: $mobile_l+1) {
+                margin: 20px;
+            }
+        }
+    }
+    .packspage__logo {
+        width: 20vw;
+    }
+}

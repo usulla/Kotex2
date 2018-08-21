@@ -1,0 +1,538 @@
+    *:focus {
+        outline: none
+    }
+
+    .contestpage {
+        .fa-chevron-left {
+            left: -3vw;
+        }
+        .fa-chevron-right {
+            right: -3vw;
+        }
+        .fa-chevron-left,
+        .fa-chevron-right {
+            font-size: 3vw;
+            color: $red;
+            -webkit-transform: translate(0, -50%);
+            -ms-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            top: 50%;
+            position: absolute;
+        }
+        button.start-contest {
+            margin-top: 5px;
+        }
+        @media (max-width: $mobile_l+1) {
+            padding-top: 0;
+            overflow: visible;
+            height: auto!important;
+        }
+        .previewComponent {
+            display: none;
+        }
+        .owlitem {
+            width: 90%;
+            margin: 0 auto;
+            display: flex!important;
+            justify-content: center;
+        }
+        .owlitem.active-slide {
+            width: 105%;
+            display: flex!important;
+
+            .item_img {
+                width: 100%;
+                padding: 15% 0% 0;
+                margin: 0px;
+            }
+        }
+
+        .item_img {
+            padding-top: 21%;
+            overflow: hidden;
+            width: 95%;
+            margin: 0px 0 0 8%;
+
+            img {
+                background: #fff;
+            }
+        }
+        .slick-slide {
+            position: relative;
+            padding: 20px;
+        }
+        .item_frame {
+            position: absolute; // width: 86%;
+            margin-top: 3%;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .owlitem.active-slide {
+            display: flex;
+            justify-content: center;
+            .item_frame {
+                width: 105%;
+                margin-top: 0%;
+            }
+        }
+
+        .active-slide {
+            padding: 0vw!important;
+
+            .owlitem {
+                width: 100%;
+            }
+
+            .item_img {
+                padding: 15% 0 0;
+                width: 100%;
+
+                img {
+                    background: #fff; //padding-bottom: 5vh;
+                }
+            }
+            .item_frame {
+                width: 100%;
+                margin-top: 0%;
+            }
+        }
+
+        .owl-prev {
+            left: -4%;
+        }
+        .owl-next {
+            right: -4%;
+        }
+        .owl-nav {
+            top: 36%;
+        }
+        .tagline_frame {
+            display: inline-block;
+            text-align: center;
+            position: relative;
+
+            .block_tagline {
+                width: 100%;
+                position: absolute;
+                bottom: 8%;
+                left: 0;
+                text-align: center;
+
+                .tagline_img {
+                    max-height: 51px;
+                    height: 2.5vw;
+                    width: auto!important;
+                    position: relative;
+                }
+            }
+        }
+        .block5-tagline_frame {
+
+            img {
+                max-height: 42vh;
+                width: auto;
+
+                @media (max-width: $mobile_l+1) {
+                   max-height: 65vh; 
+                }
+            }
+        }
+        .contest-child {
+            width: 100%;
+            @include flex;
+        }
+        .contestpage__block2-left {
+            width: 15%;
+            display: inline-block;
+            font-size: 1.5vw;
+            font-weight: 500;
+
+            @media (max-width: $mobile_l+1) {
+                font-size: 1.8vw;
+            }
+        }
+        .contestpage__block2.contest-child .contestpage__block2-left {
+            width: 25%;
+        }
+        .block2-icon {
+            .contest-icon {
+                width: 5vw;
+                display: block;
+                margin-bottom: 10px;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+        h3 {
+            font-weight: 500;
+            margin: 0 0 10px;
+
+            @media (max-width: $mobile_l+1) {
+                margin: 0;
+            }
+        }
+        position: relative;
+        background: url('../images/contest/contest-bg.jpg');
+        background-size: cover;
+        background-position: top center;
+        height: 100vh;
+        overflow: hidden;
+
+        @media (max-width: $mobile_l+1) {
+            padding-bottom: 0px;
+        }
+        .contestpage__block {
+            background: url('../images/contest/cry1.png');
+            background-size: cover;
+            background-position: top center;
+            @include flex;
+            @include align-items(center);
+            @include justify-content(center);
+            height: 100%;
+
+            .contestpage__center-block {
+                @include linear-gradient(to right top,
+                #edeff2,
+                #e4e7eb,
+                #dbdfe4,
+                #d3d7dd,
+                #cacfd6);
+                padding: 3vw;
+                width: 90%; // height: 80%;
+                margin-top: 50px;
+                min-height: 60vh;
+                @include flex;
+                max-height: 80vh;
+
+                @media (max-width: $mobile_l+1) {
+                    padding: 30px 3vw;
+                    height: auto!important;
+                    max-height: 150vh!important;
+                    min-height: 100vh!important;
+                    margin-top: 0px;
+                    max-height: auto;
+                    width: 100%;
+                }
+            }
+            .contestpage__left-block {
+                z-index: 2;
+                position: relative;
+                color: $black;
+                font-family: $font_family;
+                text-align: left;
+                width: 55%;
+                display: inline-block;
+
+                .top-text {
+                    color: $black;
+                    text-transform: uppercase;
+                    font-family: $font_family;
+                    text-align: left;
+                    font-weight: 600;
+                    font-size: 2.5vw;
+                    line-height: 3vw;
+                    display: block;
+                }
+                .top-description {
+                    color: $black;
+                    font-family: $font_family;
+                    text-align: left;
+                    font-weight: 400;
+                    font-size: 1.5vw;
+                    line-height: 2vw;
+                    margin-top: 12px;
+                    display: block;
+                    text-transform: none;
+                    margin-bottom: 5px;
+                }
+                ul {
+                    margin: 0;
+                    li {
+                        @include flex;
+                        align-items: center;
+                        text-align: left;
+                        font-weight: 400;
+                        font-size: 1.5vw;
+                        line-height: 2vw;
+                        margin-top: 12px;
+                        text-transform: none;
+
+                        span {
+                            background: url('../images/contest/contest-round.png');
+                            background-size: cover;
+                            background-position: top center;
+                            width: 3.5vw;
+                            height: 3.5vw;
+                            @include flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: $white;
+                            font-weight: 800;
+                            float: left;
+                            margin-right: 15px;
+                        }
+                    }
+                }
+                a {
+                    color: $black;
+                    display: block;
+                    margin-top: 15px;
+                    font-size: 14px;
+                }
+            }
+            .contestpage__right-block {
+                z-index: 2;
+                position: relative;
+                width: 40%;
+                float: right;
+                top: 3vh;
+                position: relative;
+
+                .contestpage__girl {
+                    width: 100%;
+                }
+            }
+        }
+
+        .contestpage__block1.hide,
+        .contest-child,
+        .contest-child.hide {
+            display: none!important;
+        }
+        .contestpage__block1.active,
+        .contestpage__block2.active,
+        .contestpage__block4.active,
+        .contestpage__block5.active {
+            display: flex!important;
+        }
+        .contestpage__block3.active {
+            display: block!important;
+        }
+        .contestpage__block2 {
+            .contestpage__block2-right {
+                display: flex!important;
+                align-items: center!important;
+
+                img {
+                    padding-left: 30px;
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+            }
+            .contestpage__block2-right {
+                width: 30%;
+            }
+            .contestpage__block2-middle {
+                @include flex;
+                @include align-items(center);
+                width: 45%;
+                border: 1px solid red;
+                padding: 3vw 4vw 2vw;
+                @media (max-width: $mobile_l+1) {
+                    padding: 2vw 4vw 1vw;
+                }
+
+                form {
+                    width: 100%;
+                    @include flex;
+                    align-items: center;
+                    @include flex-direction(column);
+
+                    .checkbox-block {
+                        margin: 10px 0;
+                        position: relative;
+                        width: 100%;
+                    }
+                    input {
+                        padding: 13px;
+                        width: 100%;
+                        border: none;
+                        margin: 10px 0;
+
+                        @media (max-width: $mobile_l+1) {
+                            margin: 8px 0;
+                        }
+                    }
+                    input[type="checkbox"] {
+                        position: absolute;
+                        left: -9999px;
+                    }
+                    label[for='age'] {
+                        @include flex;
+                        align-items: center;
+                    }
+                    input[type="checkbox"]+label:before {
+                        content: "";
+                        display: inline-block;
+                        background: $white;
+                        padding: 19px;
+                        margin-right: 10px;
+                    }
+                    input[type="checkbox"]:checked+label:before {
+                        background: $red;
+                    }
+                    input[type="submit"] {
+                        width: auto!important;
+                        margin-top: 30px;
+
+                        @media (max-width: $mobile_l+1) {
+                            margin-top: 5px;
+                        }
+                    }
+                }
+            }
+        }
+        .contestpage__block3-right {
+            width: 83%;
+            margin-right: 2%;
+            display: block;
+            float: right;
+            align-items: center;
+            height: 100%;
+            justify-content: center;
+
+            .contestpage__block3-content {
+                text-align: center;
+            }
+        }
+        .contestpage-taglines-left,
+        .contestpage-taglines-right {
+            width: 50%;
+
+            span {
+                display: block;
+            }
+        }
+        .contestpage__block4.contest-child {
+            .contestpage__block2-left {
+                width: 15%;
+            }
+            .contestpage__block4-middle {
+                width: 35%;
+                padding: 0 35px 0 10px;
+                @include flex;
+                align-items: center;
+
+                img {
+                    width: 100%;
+                }
+            }
+            .contestpage__block4-right {
+                width: 50%;
+                @include flex;
+                align-items: center;
+                position: relative;
+                .contestpage-taglines-left,
+                .contestpage-taglines-right {
+                    width: 50%;
+                    padding: 0% 6%;
+                    float: left;
+                    text-align: left;
+
+                    .tagelement {
+                        padding: 7px 0%;
+                        text-align: left;
+                        display: inline-block;
+
+                        img {
+                            height: 2.3vw;
+                            max-height: 45px;
+                            width: auto;
+                            @media (max-width: $mobile_l+1) {
+                                height: 2.8vw;
+                            }
+                        }
+                        span {
+                            width: 100%;
+                            height: 0.9vw;
+                            margin-top: -5px;
+                        }
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                    .tagelement.active {
+                        span {
+                            cursor: pointer;
+                            background: url('../images/contest/contest4-border.png');
+                            background-size: cover;
+                            background-position: top center;
+                            background-repeat: no-repeat;
+                        }
+                    }
+                }
+            }
+            .contestpage__block4-content {
+                text-align: center;
+                width: 100%;
+            }
+            .button.select-tagline {
+                bottom: -20px;
+                position: absolute;
+                left: 37%;
+
+                @media (max-width: $mobile_l+1) {
+                    bottom: 0px;
+                }
+            }
+        }
+        .contestpage__block5-middle {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            @include align-items(center);
+            @include flex;
+            @include justify-content(center);
+            @include flex-direction(column);
+
+            @media (max-width: $mobile_l+1) {
+                height: 100%;
+                top: 0;
+            }
+        }
+
+
+        .contestpage__block4.contest-child .contest-icon {
+            width: 4vw;
+        }
+        .contestpage__crystall {
+            height: 100vh;
+            position: absolute;
+            background: url('../images/contest/contest-crystall.png');
+            background-size: cover;
+            background-position: center center;
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+
+            @media (max-width: $mobile_l+1) {
+                display: none;
+            }
+        }
+    }
+
+    .vk,
+    .fb {
+        font-size: 23px;
+        color: $white;
+        float: left;
+        width: 45px;
+        height: 45px;
+        @include flex;
+        @include align-items(center);
+        @include justify-content(center);
+    }
+
+    .vk {
+        background: #4474a8;
+        margin-right: 12px;
+    }
+
+    .fb {
+        background: #275993;
+    }

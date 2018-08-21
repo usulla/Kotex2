@@ -1,0 +1,43 @@
+.footer {
+    height: 100vh;
+    overflow: hidden;
+    background: url('');
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .footer__logo {
+        width: 80%;
+        max-width: 700px;
+
+        @media (max-width: $mobile_l+1) {
+            margin-top: 20px;
+            width: 60%;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+    .clickplay {
+        font-size: 12vw;
+        margin-top: 40px;
+        color: $red;
+        position: relative;
+
+        @media (max-width: $mobile_l+1) {
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+    }
+    .license {
+        bottom: 30px;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+    }
+}

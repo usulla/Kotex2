@@ -1,0 +1,84 @@
+    .videofullpage {
+        height: 100vh;
+        overflow: hidden;
+        background: url('../images/video_bg.jpg');
+        background-size: cover;
+        background-position: top center;
+        @include flex;
+        @include align-items(center);
+
+        @media (max-width: $mobile_l+1) {
+            display:block;
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .videofullpage-iframe {
+            height: 100%;
+            width: 100%;
+            background: #000;
+            /* 16:9 */
+            width: 100%;
+            z-index: 10;
+
+            .kotex_video {
+                padding-top: 50px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: auto; //height: 100%;
+                @media (max-width: $mobile_l) {
+                    padding-top: 0px;
+                    height: 100%;
+                    width: 100%;
+                }
+
+                video {
+                    @media (max-width: $mobile_l) {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: auto; //height: 100%;
+                    }
+                }
+            }
+        }
+        /* Adding hover effect to pseudo element */
+        .videofullpage-iframe:hover:after {
+            content: none;
+        }
+
+        .clickplay {
+            right: 12vw;
+            @media (max-width: $mobile_l+1) {
+                top: 35%;
+            }
+        }
+    }
+    /* Responsive iframe styles */
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    /* Adding pseudo element to iframe parent */
+
+    .videofullpage-iframe:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: block;
+    }
+    /* Adding hover effect to pseudo element */
