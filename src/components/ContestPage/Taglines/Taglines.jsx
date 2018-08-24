@@ -22,72 +22,70 @@ class Taglines extends React.Component {
          imageUrl: window.imageUrl,
          imageWithTag: window.imageUrl2,
          imageShare:window.imageUrl3,
-         tagNum:''
+         tagNum:'',
+         imgTag:'https://ic.pics.livejournal.com/tragemata/25155229/2614743/2614743_original.png'
     });
   }
+
   state = {
       imageUrl:'',
       imageWithTag:'',
       imageShare:'',
-      tagNum:''
+      tagNum:'',
+      imgTag:'https://ic.pics.livejournal.com/tragemata/25155229/2614743/2614743_original.png'
   };
 
  _handleSubmit4(val) {
-   this.setState({tagNum: val})
- }
-    _handleSubmit3(e) {
     const taglines = document.querySelectorAll('.tagelement');
-    taglines.forEach(item => item.addEventListener('click', taglinesActive));
-    var tagNum;
-
-    function taglinesActive() {
-        taglines.forEach(item => item.classList.remove('active'));
-        this.classList.add('active');
-        tagNum = this.querySelector('img').getAttribute('data-num');
-        console.log(tagNum, 'tagNum2323');
-        let img3 = document.createElement('img');
-        img3.classList.add('tagline_img');
-
-        var srcImg;
-        switch (String(tagNum)) {
-            case '1': 
-             srcImg = contest_tagline1;  
-                    break;
-            case '2': 
-              srcImg = contest_tagline2;  
-                    break;
-            case '3': 
-              srcImg = contest_tagline3;  
-                    break;
-            case '4': 
-              srcImg = contest_tagline4;  
-                    break;
-             case '5': 
-              srcImg = contest_tagline5;  
-                    break;
-             case '6': 
-              srcImg = contest_tagline6;  
-                    break;
-             case '7': 
-              srcImg = contest_tagline7;  
-                    break;
-             case '8': 
-              srcImg = contest_tagline8;  
-                    break;
-             case '9': 
-              srcImg = contest_tagline9;  
-                    break;
-             case '10': 
-              srcImg = contest_tagline10;  
-                    break;
-        }
-
-        img3.src = srcImg;
+    taglines.forEach(item => item.classList.remove('active'));
         if (document.querySelector('.tagline_img')) {
             document.querySelector('.tagline_img').remove();
         }
-        document.querySelector('.block_tagline').appendChild(img3);
-    }
+   this.setState({tagNum: val})
+          switch (String(val)) {
+            case '1': 
+             this.setState({imgTag: contest_tagline1});
+             $('.tag1').addClass('active');
+                    break;
+            case '2': 
+             this.setState({imgTag: contest_tagline2});  
+              $('.tag2').addClass('active');
+                    break;
+            case '3': 
+           this.setState({imgTag: contest_tagline3});
+            $('.tag3').addClass('active');
+                    break;
+            case '4': 
+             this.setState({imgTag: contest_tagline4}); 
+              $('.tag4').addClass('active');
+                    break;
+             case '5': 
+           this.setState({imgTag: contest_tagline5});  
+            $('.tag5').addClass('active');
+                    break;
+             case '6': 
+             this.setState({imgTag: contest_tagline6}); 
+              $('.tag6').addClass('active');
+                    break;
+             case '7': 
+            this.setState({imgTag: contest_tagline7});
+             $('.tag7').addClass('active');
+                    break;
+             case '8': 
+             this.setState({imgTag: contest_tagline8}); 
+              $('.tag8').addClass('active'); 
+                    break;
+             case '9': 
+             this.setState({imgTag: contest_tagline9}); 
+              $('.tag9').addClass('active');
+                    break;
+             case '10': 
+             this.setState({imgTag: contest_tagline10});
+              $('.tag10').addClass('active');
+                    break;
+        }
+ }
+    _handleSubmit3(e) {
         $.ajax({
         type: 'POST',
         url: 'https://kotex.tnt-online.ru/photo.php',
@@ -132,7 +130,7 @@ return (
     <div className='contestpage__block4-middle'> 
       <div className='tagline_frame'>
           <img className='frame' src={this.props.userFrame}/>
-          <div className="block_tagline"></div>
+          <div className="block_tagline"><img src={this.state.imgTag}/></div>
       </div>
     </div>
 
@@ -140,28 +138,28 @@ return (
         <div className='contestpage__block4-content'>
         <div className='contestpage__block4-taglines'>
           <div className='contestpage-taglines-left'>
-            <div className='tagelement' onClick={(e)=>this._handleSubmit4(1)}><img data-num="1" className='tag' src={contest_tagline1}/>
+            <div className='tagelement tag1' onClick={(e)=>this._handleSubmit4(1)}><img data-num="1" className='tag' src={contest_tagline1}/>
             <span></span>
             </div>
-            <div className='tagelement' onClick={(e)=>this._handleSubmit4(2)}><img data-num="2" className='tag' src={contest_tagline2}/>
+            <div className='tagelement tag2' onClick={(e)=>this._handleSubmit4(2)}><img data-num="2" className='tag' src={contest_tagline2}/>
             <span></span></div>
-            <div className='tagelement' onClick={(e)=>this._handleSubmit4(3)}><img data-num="3" className='tag' src={contest_tagline3}/>
+            <div className='tagelement tag3' onClick={(e)=>this._handleSubmit4(3)}><img data-num="3" className='tag' src={contest_tagline3}/>
             <span></span></div>
-            <div className='tagelement' onClick={(e)=>this._handleSubmit4(4)}><img data-num="4" className='tag' src={contest_tagline4}/>
+            <div className='tagelement tag4' onClick={(e)=>this._handleSubmit4(4)}><img data-num="4" className='tag' src={contest_tagline4}/>
             <span></span></div>
-            <div className='tagelement' onClick={(e)=>this._handleSubmit4(5)}><img data-num="5" className='tag' src={contest_tagline5}/>
+            <div className='tagelement tag5' onClick={(e)=>this._handleSubmit4(5)}><img data-num="5" className='tag' src={contest_tagline5}/>
             <span></span></div>
           </div>
           <div className='contestpage-taglines-right'>
-            <div className='tagelement' onClick={(e)=>this._handleSubmit4(6)}><img data-num="6" className='tag' src={contest_tagline6}/>
+            <div className='tagelement tag6' onClick={(e)=>this._handleSubmit4(6)}><img data-num="6" className='tag' src={contest_tagline6}/>
             <span></span></div>
-            <div className='tagelement' onClick={(e)=>this._handleSubmit4(7)}><img data-num="7" className='tag' src={contest_tagline7}/>
+            <div className='tagelement tag7' onClick={(e)=>this._handleSubmit4(7)}><img data-num="7" className='tag' src={contest_tagline7}/>
             <span></span></div>
-            <div className='tagelement' onClick={(e)=>this._handleSubmit4(8)}><img data-num="8" className='tag' src={contest_tagline8}/>
+            <div className='tagelement tag8' onClick={(e)=>this._handleSubmit4(8)}><img data-num="8" className='tag' src={contest_tagline8}/>
             <span></span></div>
-            <div className='tagelement' onClick={(e)=>this._handleSubmit4(9)}><img data-num="9" className='tag' src={contest_tagline9}/>
+            <div className='tagelement tag9' onClick={(e)=>this._handleSubmit4(9)}><img data-num="9" className='tag' src={contest_tagline9}/>
             <span></span></div>
-            <div className='tagelement' onClick={(e)=>this._handleSubmit4(10)}><img data-num="10" className='tag' src={contest_tagline10}/>
+            <div className='tagelement tag10' onClick={(e)=>this._handleSubmit4(10)}><img data-num="10" className='tag' src={contest_tagline10}/>
             <span></span></div>
         </div>
          </div>
