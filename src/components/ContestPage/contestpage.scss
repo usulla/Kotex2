@@ -3,6 +3,12 @@
     }
 
     .contestpage {
+
+        .checkbox-block span {
+            color: $red;
+            padding-top: 5px;
+            display: block;
+        }
         .fa-chevron-left {
             left: -3vw;
         }
@@ -37,14 +43,7 @@
             justify-content: center;
         }
         .owlitem.active-slide {
-            width: 105%;
-            display: flex!important;
-
-            .item_img {
-                width: 100%;
-                padding: 15% 0% 0;
-                margin: 0px;
-            }
+          
         }
 
         .item_img {
@@ -70,33 +69,12 @@
             }
         }
         .owlitem.active-slide {
-            display: flex;
-            justify-content: center;
-            .item_frame {
-                width: 105%;
-                margin-top: 0%;
-            }
+    
         }
 
         .active-slide {
-            padding: 0vw!important;
-
-            .owlitem {
-                width: 100%;
-            }
-
-            .item_img {
-                padding: 15% 0 0;
-                width: 100%;
-
-                img {
-                    background: #fff; //padding-bottom: 5vh;
-                }
-            }
-            .item_frame {
-                width: 100%;
-                margin-top: 0%;
-            }
+             @include transform(scale(1.05));
+              @include transition;
         }
 
         .owl-prev {
@@ -135,7 +113,7 @@
                 width: auto;
 
                 @media (max-width: $mobile_l+1) {
-                   max-height: 65vh; 
+                    max-height: 65vh;
                 }
             }
         }

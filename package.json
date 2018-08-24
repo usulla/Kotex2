@@ -17,6 +17,7 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-html5video": "^2.5.1",
+    "react-image": "^1.4.1",
     "react-owl-carousel2": "^0.3.0",
     "react-scripts": "1.1.4",
     "react-slick": "^0.23.1",

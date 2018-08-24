@@ -20,7 +20,7 @@ class App extends Component {
                 <VideoFullPage/>
                 <ContestPage listmembers={listMembers}/>
                 <PrizesPage/>
-                <MembersPage listmembers={listMembers}/>
+                <MembersPage/>
                 <TestPage datatest={dataTest} dataresults={dataResults}/>
                 <PacksPage/>
                 <Footer/>

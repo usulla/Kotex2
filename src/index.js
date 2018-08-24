@@ -44,7 +44,7 @@ const FullpageWrapper = fullpageProps => (<ReactFullpage
   render={({ state, fullpageApi }) => {
     return (
       <div>
-<App/>
+      <App/>
            <div className='change-screen'>
             <img src={change_or_girl} />
             <span>

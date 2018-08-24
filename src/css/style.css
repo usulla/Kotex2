@@ -54,13 +54,6 @@
   font-style: normal;
   font-weight: 200; }
 
-@font-face {
-  font-family: "TNTSansCondensed-Regular";
-  src: url("http://tnt-design.tnt-online.ru/tnt-sans/condensed/TNTSansCondensed-Regular.eot");
-  src: url("http://tnt-design.tnt-online.ru/tnt-sans/condensed/TNTSansCondensed-Regular.eot?#iefix") format("embedded-opentype"), url("http://tnt-design.tnt-online.ru/tnt-sans/condensed/TNTSansCondensed-Regular.woff") format("woff"), url("http://tnt-design.tnt-online.ru/tnt-sans/condensed/TNTSansCondensed-Regular.ttf") format("truetype");
-  font-style: normal;
-  font-weight: normal; }
-
 /* Variables */
 /* Mixins */
 .header {
@@ -405,10 +398,9 @@
     z-index: 10; }
     .videofullpage .videofullpage-iframe .kotex_video {
       padding-top: 50px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: auto; }
+      position: static;
+      width: 100%;
+      height: 100%; }
       @media (max-width: 767px) {
         .videofullpage .videofullpage-iframe .kotex_video {
           padding-top: 0px;
@@ -447,6 +439,37 @@ iframe {
   z-index: 1;
   display: block; }
 
+.rh5v-DefaultPlayer_component {
+  width: 100%; }
+
+.videofullpage video,
+.rh5v-DefaultPlayer_video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding-top: 50px; }
+  @media (max-width: 768px) {
+    .videofullpage video,
+    .rh5v-DefaultPlayer_video {
+      padding-top: 0px; } }
+
+.close-btn-video {
+  color: #fff;
+  position: absolute;
+  top: 70px;
+  right: 70px;
+  font-size: 32px;
+  z-index: 9999; }
+  .close-btn-video:hover {
+    cursor: pointer; }
+  @media (max-width: 768px) {
+    .close-btn-video {
+      top: 30px;
+      right: 30px;
+      font-size: 20px; } }
+
 /* Adding hover effect to pseudo element */
 *:focus {
   outline: none; }
@@ -458,6 +481,10 @@ iframe {
   background-position: top center;
   height: 100vh;
   overflow: hidden; }
+  .contestpage .checkbox-block span {
+    color: #e91f3f;
+    padding-top: 5px;
+    display: block; }
   .contestpage .fa-chevron-left {
     left: -3vw; }
   .contestpage .fa-chevron-right {
@@ -485,13 +512,6 @@ iframe {
     margin: 0 auto;
     display: flex !important;
     justify-content: center; }
-  .contestpage .owlitem.active-slide {
-    width: 105%;
-    display: flex !important; }
-    .contestpage .owlitem.active-slide .item_img {
-      width: 100%;
-      padding: 15% 0% 0;
-      margin: 0px; }
   .contestpage .item_img {
     padding-top: 21%;
     overflow: hidden;
@@ -507,24 +527,16 @@ iframe {
     margin-top: 3%; }
     .contestpage .item_frame:hover {
       cursor: pointer; }
-  .contestpage .owlitem.active-slide {
-    display: flex;
-    justify-content: center; }
-    .contestpage .owlitem.active-slide .item_frame {
-      width: 105%;
-      margin-top: 0%; }
   .contestpage .active-slide {
-    padding: 0vw !important; }
-    .contestpage .active-slide .owlitem {
-      width: 100%; }
-    .contestpage .active-slide .item_img {
-      padding: 15% 0 0;
-      width: 100%; }
-      .contestpage .active-slide .item_img img {
-        background: #fff; }
-    .contestpage .active-slide .item_frame {
-      width: 100%;
-      margin-top: 0%; }
+    -moz-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear; }
   .contestpage .owl-prev {
     left: -4%; }
   .contestpage .owl-next {
@@ -1135,6 +1147,8 @@ iframe {
     position: absolute;
     width: 100%;
     text-align: center; }
+  .footer .iframevideo {
+    z-index: 999; }
 
 .owlitem img {
   display: block;
@@ -1441,11 +1455,12 @@ iframe {
     position: relative; }
     .packspage .packspage__top .packspage__packs {
       width: 80vw;
-      bottom: -20vh;
+      bottom: -23vh;
       position: absolute;
-      left: 10vw; }
+      left: 10vw;
+      text-align: center; }
       .packspage .packspage__top .packspage__packs img {
-        width: 100%; }
+        width: 95%; }
   .packspage .packspage_text span {
     color: #FFF;
     text-transform: uppercase;

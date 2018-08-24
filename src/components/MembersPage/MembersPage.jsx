@@ -7,20 +7,46 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
-   <div onClick={onClick}><i className="fas fa-chevron-left"></i></div>
+   <div onClick={onClick}><i className="fas fa-chevron-right"></i></div>
   );
 }
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
-     <div onClick={onClick}><i className="fas fa-chevron-right"></i></div>
+     <div onClick={onClick}><i className="fas fa-chevron-left"></i></div>
   );
 }
-const MembersPage = ({listmembers}) => {
-     var settings = {
+class MembersPage extends React.Component {
+   constructor() {
+        super()
+        this.state = {
+            data: []
+        }
+    }
+    componentDidMount() {
+            $.ajax({
+            url: "https://kotex.tnt-online.ru/photo.php",
+            type: "POST",
+            data: {action:'show_list'},
+            dataType: 'json',
+            ContentType: 'application/json',
+            success: function (data) {
+              console.log(data, 'datadatadata')
+               console.log(data.competitors, 'data.competitors');
+                this.setState({data: data.competitors});
+            }.bind(this),
+
+            error: function (data) {
+                //  this.setState({data: data.competitors});
+      
+            }.bind(this)
+        });
+    }
+     render() {
+         var settings = {
       dots: false,
       infinite: true,
-      speed: 500,
+      speed: 1000,
       slidesToShow: 5,
       slidesToScroll: 5,
       rows: 2,
@@ -37,7 +63,7 @@ const MembersPage = ({listmembers}) => {
         }
       ]
     };
-    return (
+        return (
         <article className='memberpage section'>
         <div className='center_block'>
         <div className='members__toggle-blocks'>
@@ -48,9 +74,9 @@ const MembersPage = ({listmembers}) => {
             Победительницы<br/> <span>конкурса</span>
             </div>
         </div>
-        <div className="memberpage__container">
-            <Slider {...settings}>
-                    {listmembers.map((item, index) => 
+        <div className="memberpage__container">  
+          <Slider {...settings}>
+                    {this.state.data.map((item, index) => 
                       <OwlItem key={index} imgsrc={item}/>
                 )
                 }
@@ -59,13 +85,13 @@ const MembersPage = ({listmembers}) => {
          </div>
         </article>
     );
-};
+}};
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(call2, 1000);
     window.addEventListener('resize', () => {
        call2(); 
     });
-   
+
     function call2() {
         var membersCarousel;
         membersCarousel = document.querySelector('.memberpage__container');

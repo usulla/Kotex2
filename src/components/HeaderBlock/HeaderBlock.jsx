@@ -18,7 +18,7 @@ class HeaderBlock extends Component {
                    <div className='header__text'>
                         Участвуй<br/> в конкурсе от Kotex <br/>и попади на съемки шоу
                     </div>
-                     <img className='header__logo' src={header_logo}/>
+      <img className='header__logo' src={header_logo}/>
                     <div className='header__packs'><img src={header_packs}/></div>
                 </div>
                 </div>

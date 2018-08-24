@@ -16,7 +16,59 @@ import contest5_icon from '../../images/contest/contest5-icon.gif';
 import './contestpage.js';
 
 class ContestPage extends React.Component {
+ state = {
+      imageUrl:'',
+      imageWithTag:'',
+      imageShare:''
+    };
+ constructor(props) {
+    super(props);
+    this.state = {
+      isChecked: false,
+      imageUrl:window.imageUrl,
+      imageWithTag:window.imageUrl2,
+      imageShare:window.imageUrl3
+    };
+  }
+   submitNote = (value1) => {
+     this.setState({
+         imageUrl: value1
+    });
 
+     this.state.imageUrl = value1;
+     console.log(value1,'YYYYYYYYYYYYYYYYYYYYYYY');
+     console.log(this.state.imageUrl,'09fffffTTTT');
+   };
+
+   submitNote2 = (value1) => {
+     this.setState({
+         imageWithTag: value1
+    });
+
+    this.state.imageWithTag = value1;
+       console.log(value1,'YYYYYYrfrfrfrfrf');
+     console.log(this.state.imageWithTag,'imageWithTag');
+ };
+    submitNote3 = (value1) => {
+     this.setState({
+         imageShare: value1
+    });
+
+    this.state.imageShare = value1;
+       console.log(value1,'imageShare');
+     console.log(this.state.imageShare,'imageShare');
+ };
+
+   toggleChange = () => {
+    this.setState({
+      isChecked: !this.state.isChecked,
+    });
+  }
+  checkCheckbox = ()=>{
+    if (this.state.isChecked == false ){
+        $('.agelabel').after('<span>Вам нет 18 лет</span>');
+    }
+  }
 render() {
 return (
 <article className='contestpage section'>
@@ -57,24 +109,23 @@ return (
              <input id="email" name="email" type="email" placeholder="Email" required/>
              <input id="city" name="city" type="text" placeholder="Город" required/>
              <div className='checkbox-block'>
-             <input type="checkbox" id="age" name="age"
-               value="age" />
-             <label for="age">мне есть 18</label>
+             <input type="checkbox" required id="age" name="age"
+               value="age" checked={this.state.isChecked} onChange={this.toggleChange}/>
+             <label for="age" class='agelabel'>мне есть 18</label>
              </div>  
-             <input type="submit" value="Загрузить фото" className='button'/>
+             <input type="submit" value="Загрузить фото" className='button' onClick={this.checkCheckbox} required/>
              </form>
 
-             <ImageUpload />
+             <ImageUpload submitNote={this.submitNote}/>
              </div> 
 
                 <div className='contestpage__block2-right'>
                     <img className='contestpage__block2-girl' src={contest2_girl}/>
                 </div>
-
             </div>
-          <Frames userImg={window.$imagePreview}/>
-          <Taglines />
-          <SharePhoto />
+          <Frames submitNote2={this.submitNote2} userImg={this.state.imageUrl}/>
+          <Taglines submitNote3={this.submitNote3} userFrame={this.state.imageWithTag}/>
+          <SharePhoto userFinish={this.state.imageShare}/>
         </div>
     </div>
 
@@ -85,42 +136,31 @@ return (
 };
 document.addEventListener('DOMContentLoaded', () => {
     $(".fileInput").on("click", function() {
-        window.userImg = window.$imagePreview;
-        var files = this.files;
-        console.log(files, 'files');
-
-        $.ajax({
-        type: 'POST',
-        url: '',
-        data: files,
-        cache: false,
-        dataType: 'json',
-        processData: false, 
-        contentType: false, 
-        success: function(data) {
-            if (data.result == 'success'){
-            }
-        },
-        error: function(xhr, str) {
-        }
-    });
     });
 
 });
-
+window.dataIdVar;
 function call() {
     $(".fileInput").trigger("click");
-    var msg = $('.medata').serialize();
+    var msg = $('.medata').serializeArray();
+    var value1 = msg[0].value;
+    var name1 = msg[0].name;
+    var value2 = msg[1].value;
+    var name2 = msg[1].name;
+    var value3 = msg[2].value;
+    var name3 = msg[2].name;
     $.ajax({
         type: 'POST',
-        url: '',
-        data: msg,
+        url: 'https://kotex.tnt-online.ru/photo.php',
+        data: {action:'add', name:value1, email:value2, city:value3},
         success: function(data) {
-            if (data.result == 'success'){
-            	
-            }
+            console.log(data, 'data');
+            var tempData = JSON.parse(data);
+            	window.dataIdVar = tempData.user_id;
+                console.log(window.dataIdVar, 'window.dataIdVar');
         },
-        error: function(xhr, str) {
+        error: function(data) {
+            window.dataIdVar = data.user_id;
         }
     });
 }

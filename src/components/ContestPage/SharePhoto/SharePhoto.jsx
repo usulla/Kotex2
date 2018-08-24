@@ -5,7 +5,9 @@ import tagline_demo from '../../../images/contest/taglines/tagline-demo.png';
 import contest_tagline1 from '../../../images/contest/taglines/contest4-title1.png';
 import contest_tagline9 from '../../../images/contest/taglines/contest4-title9.png';
 
-const SharePhoto = () => { 
+class SharePhoto extends React.Component {
+
+render() {
     return (
 <div className='contestpage__block5 contest-child'>
     <div className='contestpage__block2-left'>
@@ -18,7 +20,7 @@ const SharePhoto = () => {
 
     <div className='contestpage__block5-middle'> 
       <div className='block5-tagline_frame'>
-          <img className='frame' src={tagline_demo}/>
+          <img className='frame' src={this.props.userFinish}/>
           <div className="block_tagline"></div>
       </div>
       <div className='tagline_share'>
@@ -29,6 +31,7 @@ const SharePhoto = () => {
     
 </div>
 );
+}
 };
 
 document.addEventListener('DOMContentLoaded', () => {

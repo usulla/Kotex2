@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 import $ from "jquery";
+import Img from 'react-image'
 import Slider from "react-slick";
 import OwlItem from '../../OwlItem/OwlItem.jsx';
 import Button from '../../Button/Button.jsx';
@@ -25,27 +26,82 @@ import contest_tagline10 from '../../../images/contest/taglines/contest4-title10
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
-   <div onClick={onClick}><i className="fas fa-chevron-left"></i></div>
+   <div onClick={onClick}><i className="fas fa-chevron-right"></i></div>
   );
 }
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
-     <div onClick={onClick}><i className="fas fa-chevron-right"></i></div>
+     <div onClick={onClick}><i className="fas fa-chevron-left"></i></div>
   );
 }
 
-const Frames = ({userImg}) => {
-     var settings2 = {
+class Frames extends React.Component {
+   componentDidMount() {
+       this.setState({
+         imageUrl: window.imageUrl,
+         imageWithTag: window.imageUrl2
+    });
+  }
+  
+   state = {
+      imageUrl:'',
+      imageWithTag:''
+    };
+
+  constructor(props) {
+    super(props);
+    this.state = {file: '',imagePreviewUrl: '', imageUrl: window.imageUrl, imageWithTag:window.imageUrl};
+  }
+
+  submitNote = () => {
+    this.props.submitNote('maria');
+};
+
+  _handleSubmit2(e) {
+    console.log(8989898985555)
+      $.ajax({
+        type: 'POST',
+        url: 'https://kotex.tnt-online.ru/photo.php',
+        data: {action:'add_frame', id: window.dataIdVar, frame: window.dataFramesId},
+        success: function(data) {
+              var tempUrl2 = JSON.parse(data);
+                 window.imageUrl2 = tempUrl2.url;
+            //    window.imageUrl2 = 'https://4dancing.ru/files/u5304/azerbaijani-dances-1.jpg';
+                 this.props.submitNote2(window.imageUrl2);  
+                 console.log(window.imageUrl2, 'window.imageUrl2'); 
+                  console.log(this.state.imageUrl2, 'this.state.imageUrl2'); 
+                 console.log(this.state.imageWithTag, 'this.state.imageWithTag');
+        }.bind(this),
+        error: function(data) {
+             //  var tempUrl2 = JSON.parse(data);
+               //  window.imageUrl2 = tempUrl2.url;
+                window.imageUrl2 = 'https://4dancing.ru/files/u5304/azerbaijani-dances-1.jpg';
+                 this.props.submitNote2(window.imageUrl2);  
+                 console.log(window.imageUrl2, 'window.imageUrl2'); 
+                  console.log(this.state.imageUrl2, 'this.state.imageUrl2'); 
+                 console.log(this.state.imageWithTag, 'this.state.imageWithTag'); 
+        }.bind(this)
+    });
+      // Hide/show
+         document.querySelector('.contestpage__block3').classList.add('hide');
+         document.querySelector('.contestpage__block3').classList.remove('active');
+         document.querySelector('.contestpage__block4').classList.add('active');
+         document.querySelector('.contestpage__block4').classList.remove('hide');
+      }
+      render() {
+      var settings2 = {
       dots: false,
       infinite: true,
-      speed: 500,
+      speed: 1000,
       slidesToShow: 3,
-      slidesToScroll: 3,
+      slidesToScroll: 1,
       rows: 1,
       nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />
     };
+    console.log(this.state.imageUrl, 'dfd1113333333333333333')
+    console.log(this.props.userImg, 'this.props.userImg')
     return (
 <div className='contestpage__block3 contest-child hide'>
     <div className='contestpage__block2-left'>
@@ -60,18 +116,18 @@ const Frames = ({userImg}) => {
             <Slider {...settings2}>
                 <div className="owlitem" data-id='1'>
                    <div className="item_frame">
-                    <img src={contest_frame2}/>
+                    <img src={contest_frame1}/>
                    </div>
                    <div className="item_img">
-                   <img src='http://demo4.landmary.ru/static/media/test-girl.jpg'/>
+          <img src={this.props.userImg}/>
                    </div>
                 </div>
                 <div className="owlitem" data-id='2'>
                 <div className="item_frame">
-                    <img src={contest_frame2}/>
+                   <img src={contest_frame2}/>
                    </div>
                 <div className="item_img">
-                  <img src='http://demo4.landmary.ru/static/media/test-girl.jpg'/>
+          <img src={this.props.userImg}/>
                 </div>
                  </div>
                  <div className="owlitem" data-id='3'>
@@ -79,7 +135,7 @@ const Frames = ({userImg}) => {
                     <img src={contest_frame3}/>
                    </div>
                 <div className="item_img">
-                    <img src='http://demo4.landmary.ru/static/media/test-girl.jpg'/>
+       <img src={this.props.userImg}/>
                 </div>
                  </div>
                   <div className="owlitem" data-id='4'>
@@ -87,7 +143,7 @@ const Frames = ({userImg}) => {
                     <img src={contest_frame4}/>
                    </div>
                 <div className="item_img">
-                    <img src='http://demo4.landmary.ru/static/media/test-girl.jpg'/>
+                    <img src={this.props.userImg}/>
                 </div>
                  </div>
                   <div className="owlitem" data-id='5'>
@@ -98,20 +154,21 @@ const Frames = ({userImg}) => {
                     {window.$imagePreview}
                 </div> */}
                 <div className="item_img">
-                <img src='http://demo4.landmary.ru/static/media/test-girl.jpg'/>
+               <img src={this.props.userImg}/>
                 </div>
                  
                  </div>
              </Slider>
-            <Button text='Выбрать рамку' classadd='select-frame' />
+              <div className='button select-frame' onClick={(e)=>this._handleSubmit2(e)}>Выбрать рамку</div>
         </div>
     </div>
 </div>
 )
+  }
 };
 document.addEventListener('DOMContentLoaded', () => {
 
-	const allFrames = document.querySelectorAll('.owlitem');
+	const allFrames = document.querySelectorAll('.slick-slide');
 	window.dataFramesId;
        allFrames.forEach(item => item.addEventListener('click', () => {
           toggleActiveSlide(item);
@@ -120,61 +177,14 @@ document.addEventListener('DOMContentLoaded', () => {
           toggleActiveSlide(item);
        }));
       function toggleActiveSlide(item){
-         window.dataFramesId = item.getAttribute('data-id');
+         window.dataFramesId = item.querySelector('.owlitem').getAttribute('data-id');
            allFrames.forEach((item2) => {
             item2.classList.remove('active-slide');
            })
            item.classList.add('active-slide');
            console.log(window.dataFramesId, 'window.dataFramesId');
       }
-
-       if(document.querySelector('.select-frame')){
-        document.querySelector('.select-frame').addEventListener('click', () => {
-      var idFromServer = 6745;
-      $.ajax({
-        type: 'POST',
-        url: '',
-        data: {id: idFromServer, frame: window.dataFramesId},
-        success: function(data) {
-            if (data.result == 'success'){
-            }
-        },
-        error: function(xhr, str) {
-        }
-    });
-      // Hide/show
-         document.querySelector('.contestpage__block3').classList.add('hide');
-         document.querySelector('.contestpage__block3').classList.remove('active');
-         document.querySelector('.contestpage__block4').classList.add('active');
-         document.querySelector('.contestpage__block4').classList.remove('hide');
- });
-      }
 });
  
-const options2 = {
-    items: 3,
-    nav: true,
-    loop:true,
-    navText: [
-        '<i class="fas fa-chevron-left"></i>',
-        '<i class="fas fa-chevron-right"></i>'
-    ],
-    center:true,
-    margin: 0,
-    responsive: {
-        0: {
-            items: 1,
-            nav: true
-        },
-        480: {
-            items: 3,
-            nav: true
-        },
-        768: {
-            items: 3,
-            nav: true
-        }
-    }
-};
 
 export default Frames;
